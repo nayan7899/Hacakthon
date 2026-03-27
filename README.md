@@ -14,8 +14,8 @@ A high-performance, configurable workflow platform built to handle real-world bu
 
 ## 🛠️ Tech Stack
 
-* **Language:** Java 17
-* **Framework:** Spring Boot 3.x
+* **Language:** Java
+* **Framework:** Spring Boot (version 3.x)
 * **Database:** PostgreSQL (Persistence & Auditing)
 * **Cache:** Redis (Idempotency Management)
 * **Build Tool:** Maven
