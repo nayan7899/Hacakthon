@@ -89,11 +89,13 @@ The system implements a retry loop for the ```ExternalDataService```. If the sim
 
 ---
 ## 📂 Project Structure
-Plaintext
+```bash
 src/main/java/com/hackathon/decisionengine/
 ├── controller/   # REST API Endpoints
 ├── service/      # Orchestration, Retries, & Explanations
 ├── domain/       # Core Rule Engine & State Logic
 ├── dto/          # Data Transfer Objects
+├── filter/       # Redis-backed Idempotency Interceptors (Security Layer)
 ├── model/        # Database Entities (AuditLog, WorkflowState)
 └── repository/   # Database Access (JPA)
+```
