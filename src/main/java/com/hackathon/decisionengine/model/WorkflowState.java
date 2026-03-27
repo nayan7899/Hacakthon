@@ -1,6 +1,6 @@
 package com.hackathon.decisionengine.model;
 
-import com.hackathon.decisionengine.domain.state.StateMachine.State;
+import com.hackathon.decisionengine.domain.StateMachine.State;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

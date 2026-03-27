@@ -3,7 +3,7 @@ package com.hackathon.decisionengine.service;
 import com.hackathon.decisionengine.domain.rules.Rule;
 import com.hackathon.decisionengine.domain.rules.RuleEvaluator;
 import com.hackathon.decisionengine.domain.rules.RuleResult;
-import com.hackathon.decisionengine.domain.state.StateMachine;
+import com.hackathon.decisionengine.domain.StateMachine; // FIXED: Corrected import path
 import com.hackathon.decisionengine.dto.WorkflowRequest;
 import com.hackathon.decisionengine.dto.WorkflowResponse;
 import com.hackathon.decisionengine.model.AuditLog;
@@ -33,16 +33,17 @@ public class WorkflowOrchestrator {
     public WorkflowResponse executeWorkflow(WorkflowRequest request) {
         String requestId = UUID.randomUUID().toString();
 
-        // 1. Initialize State (PENDING -> EVALUATING)
+        // 1. Initialize State (PENDING)
         WorkflowState state = WorkflowState.builder()
                 .requestId(requestId)
                 .workflowId(request.getWorkflowId())
                 .status(StateMachine.State.PENDING)
                 .build();
         
-        state.setStatus(StateMachine.transition(state.getStatus(), StateMachine.State.VALIDATING));
+        // FIXED: Removed the invalid VALIDATING state. Transition directly to EVALUATING.
         state.setStatus(StateMachine.transition(state.getStatus(), StateMachine.State.EVALUATING));
         stateRepository.save(state);
+        
         // ---LINE TO TRIGGER THE EXTERNAL CALL ---
         callExternalServiceWithRetry(request.getWorkflowId());
 
@@ -93,8 +94,4 @@ public class WorkflowOrchestrator {
             }
         }
     }
-
-
-
-
 }
