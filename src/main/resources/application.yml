@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: decision-engine
+
+  # PostgreSQL Configuration (Matches your docker-compose file)
+  datasource:
+    url: jdbc:postgresql://localhost:5432/decision_db
+    username: hackathon
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  # Hibernate/JPA Configuration
+  jpa:
+    hibernate:
+      ddl-auto: update # Automatically creates tables from your entities
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  # Redis Configuration
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+server:
+  port: 8080

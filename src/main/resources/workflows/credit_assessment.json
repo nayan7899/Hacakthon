@@ -1,0 +1,42 @@
+{
+  "workflowId": "credit_assessment",
+  "version": "1.0",
+  "description": "Credit assessment workflow with comprehensive validation",
+  "rules": [
+    {
+      "ruleId": "chk_age",
+      "priority": 1,
+      "targetField": "age",
+      "operator": "GREATER_THAN",
+      "expectedValue": "18"
+    },
+    {
+      "ruleId": "chk_income",
+      "priority": 2,
+      "targetField": "annualIncome",
+      "operator": "GREATER_THAN",
+      "expectedValue": "25000"
+    },
+    {
+      "ruleId": "chk_employment",
+      "priority": 3,
+      "targetField": "employmentYears",
+      "operator": "GREATER_THAN",
+      "expectedValue": "1"
+    },
+    {
+      "ruleId": "chk_credit_score",
+      "priority": 4,
+      "targetField": "creditScore",
+      "operator": "GREATER_THAN",
+      "expectedValue": "600"
+    },
+    {
+      "ruleId": "chk_existing_loans",
+      "priority": 5,
+      "targetField": "existingLoans",
+      "operator": "LESS_THAN",
+      "expectedValue": "3"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "workflowId": "loan_approval",
+  "version": "1.0",
+  "description": "Evaluates a standard personal loan application.",
+  "rules": [
+    {
+      "ruleId": "chk_income",
+      "priority": 1,
+      "targetField": "monthlyIncome",
+      "operator": "EXISTS",
+      "expectedValue": null
+    },
+    {
+      "ruleId": "chk_score",
+      "priority": 2,
+      "targetField": "creditScore",
+      "operator": "GREATER_THAN",
+      "expectedValue": "650"
+    }
+  ]
+}
